@@ -22,6 +22,7 @@ class BooksController < ApplicationController
     # pp authors
 
     FetchBooksTitlesJob.perform_later
+    NewBookMailer.new_book.deliver_later
 
     respond_to do |format|
       if @book.save
