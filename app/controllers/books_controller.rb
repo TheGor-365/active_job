@@ -18,6 +18,11 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
+    # authors = Book.pluck(:author)
+    # pp authors
+
+    FetchBooksTitlesJob.perform_later
+
     respond_to do |format|
       if @book.save
         format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
