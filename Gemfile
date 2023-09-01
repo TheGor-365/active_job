@@ -18,6 +18,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "simple_form"
 gem "responders"
+gem "sidekiq", "~> 7.1"
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"

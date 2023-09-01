@@ -1,4 +1,6 @@
-class FetchBooksTitlesJob < ApplicationJob
+# class FetchBooksTitlesJob < ApplicationJob
+class FetchBooksTitlesJob
+  include Sidekiq::Worker
   # self.queue_adapter = :resque
   # queue_as { true ? :default : :low_priority }
 

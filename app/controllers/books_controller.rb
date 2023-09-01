@@ -21,7 +21,8 @@ class BooksController < ApplicationController
     # authors = Book.pluck(:author)
     # pp authors
 
-    FetchBooksTitlesJob.perform_later
+    # FetchBooksTitlesJob.perform_later
+    FetchBooksTitlesJob.perform_in(10.seconds) # for sidekiq
     NewBookMailer.new_book.deliver_later
 
     respond_to do |format|
